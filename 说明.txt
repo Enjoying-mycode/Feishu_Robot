@@ -1,0 +1,8 @@
+1、json文件必须是UTF-8编码，否则无法解析
+2、常见文件的MIME类型：
+text/plain：纯文本文件，如 .txt 文件
+application/pdf：PDF文档，通常用于 .pdf 文件。
+application/msword：Microsoft Word文档，通常用于 .doc 或 .docx 文件。
+application/vnd.ms-excel：Microsoft Excel文档，通常用于 .xls 或 .xlsx 文件。
+application/vnd.ms-powerpoint：Microsoft PowerPoint文档，通常用于 .ppt 或 .pptx 文件。
+application/json：JSON数据，通常用于API响应和配置文件。

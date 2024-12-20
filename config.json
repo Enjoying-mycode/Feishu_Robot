@@ -1,0 +1,25 @@
+﻿{
+  "version": "1.0.1",
+  "configurations": {
+    "robot_proxies": {
+      "http": "http://10.25.2.60:8080",
+      "https": "http://10.25.2.60:8080"
+    },
+    "App_ID": "cli_a7cf8e20b6f2900d",
+    "App_Secret": "SeUsYcJFpWVdLRPLYSm3Fgwj1Bh6ws5e",
+    "robot_get_tenant_access_token_url": "https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal",
+    "robot_uploadimage_get_image_key_url": "https://open.feishu.cn/open-apis/im/v1/images",
+    "robot_send_info_url": "https://open.feishu.cn/open-apis/im/v1/messages",
+    "robot_uploadfile_get_file_key_url": "https://open.feishu.cn/open-apis/im/v1/files"
+  },
+  "description": {
+    "robot_proxies": "代理设置",
+    "App_ID": "飞书开放平台应用的唯一ID标识",
+    "App_Secret": "应用的密钥",
+    "robot_get_tenant_access_token_url": "获取tenant_access_token的URL",
+    "robot_uploadimage_get_image_key_url": "上传图片获取image_key的URL",
+    "robot_send_info_url": "发送文本和图片消息的URL",
+    "robot_uploadfile_get_file_key_url": "上传文件获取file_key的URL"
+  }
+}
+

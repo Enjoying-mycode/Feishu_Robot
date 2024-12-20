@@ -1,0 +1,19 @@
+certifi==2024.8.30
+charset-normalizer==3.4.0
+et_xmlfile==2.0.0
+idna==3.10
+Jinja2==3.1.4
+MarkupSafe==2.1.5
+numpy==1.23.0
+openpyxl==3.1.5
+pillow==10.4.0
+prettytable==3.10.0
+pyecharts==1.9.1
+PyMySQL==1.1.1
+PySocks==1.7.1
+pywin32==308
+requests==2.32.3
+requests-toolbelt @ file:///F:/wj/StudyCode/Python/Python%E7%9B%B8%E5%85%B3%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/requests_toolbelt-1.0.0-py2.py3-none-any.whl
+simplejson==3.19.2
+urllib3==2.2.3
+
