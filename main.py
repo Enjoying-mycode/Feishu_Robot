@@ -1,3 +1,5 @@
+"""通过配置文件在指定飞书群发送报表截图、点评、文件"""
+
 import basic_finction
 # openpyxl是一个纯 Python 库，不依赖于任何外部的 COM 组件或 Office 安装，直接通过API来操作Excel文件
 from openpyxl import load_workbook
@@ -20,7 +22,7 @@ def ensure_dir_exists(dir_path):
 while True:
     # 记录开始时间
     start_time = datetime.datetime.now()
-    cgf_file_path = r'C:\Users\Administrator\Desktop\测试文件\config.xlsx'
+    cgf_file_path = r'D:\MyDocuments\wangjia93\桌面\测试文件\config.xlsx'
     workbook = load_workbook(filename=cgf_file_path, data_only=True)
     sheet = workbook.active  # 假设我们读取的是活动工作表
     max_row = sheet.max_row     # 最大行数
@@ -47,6 +49,7 @@ while True:
                 image_name = '截图-' + sheet["D"+str(row)].value.replace('.xlsx','') + '.png'
                 # 截图文件导出文件夹
                 image_path = os.path.join(image_file_path, str(chat_name))
+                # 截图存放路径是否存在，不存在，则新建
                 ensure_dir_exists(image_path)
                 # 截图文件绝对路径
                 output_image_path = os.path.join(image_path, image_name)
@@ -73,6 +76,15 @@ while True:
                 basic_finction.send_text(excel_text, chat_name)
                 # 删除源文件
                 os.remove(excel_path)
+            elif send_type == '文件':
+                # excel文件绝对路径
+                excel_path = os.path.join(excel_file_path, excel_file_name)
+                # 发送文件
+                basic_finction.send_file(excel_file_path, excel_file_name, chat_name)
+                # 等待10秒，防止文件过大，导致发送时间长
+                # time.sleep(5)
+                # 删除源文件
+                os.remove(excel_path)
         else:
             pass
 
@@ -88,6 +100,7 @@ while True:
 
     print('20秒后重启')
     time.sleep(20)
+
 
 
 

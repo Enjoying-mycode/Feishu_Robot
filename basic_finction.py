@@ -171,7 +171,7 @@ def send_image(image_path: str, image_name: str, chat_name: str):
         if response.status_code == 200: # 200是状态成功码，请求成功，服务器返回请求的网页
             return '图片发送成功'
         else:
-            return "请求失败，状态码是：" + str(response.status_code)
+            return "图片发送请求失败，状态码是：" + str(response.status_code)
 
 
 # 上传文件获取file_key，下面代码中以.xlsx文件为例
@@ -197,11 +197,11 @@ def uploadfile(filepath: str, file_name: str):
             token_data = response.json()
             return token_data["data"]["file_key"]
         else:
-            return "请求失败，状态码：", response.status_code
+            return "文件请求失败，状态码：", response.status_code
 
 
 # 发送文件
-def send_file(filepath, file_name):
+def send_file(filepath: str, file_name: str, chat_name: str):
     # 查询参数，确定接收者的类型，发送至飞书群，需要加在url地址后
     params = {"receive_id_type": "chat_id"}
     # 请求头
@@ -215,20 +215,20 @@ def send_file(filepath, file_name):
     # 请求体
     data = {
         # 接收者的ID，与接收者类型相同
-        "receive_id": get_chat_id("小机器人测试群"),   # chat_id
+        "receive_id": get_chat_id(chat_name),   # chat_id
         # 消息内容：将内容由字典类型转换成json格式（字符串）
         "content": json.dumps(file_key_dict),
         # 消息类型
         "msg_type": "file"
     }
-    with requests.post(url=robot_send_info_url, proxies=robot_proxies, headers=headers, data=json.dumps(data),params=params) as response :
+    with requests.post(url=robot_send_info_url, proxies=robot_proxies, headers=headers, data=json.dumps(data), params=params) as response :
         if response.status_code == 200: # 200是状态成功码，请求成功，服务器返回请求的网页
             return '文件发送成功'
         else:
             return "请求失败，状态码是：" + str(response.status_code)
 
 
-# 读取excel文件，获取文字点评并发送至飞书群
+# 读取excel文件，获取文字点评并发送至飞书群，不需要机器上安装EXCEL程序
 def read_excel_file_get_send_text(excel_file_path, excel_file):
 
     # excel文件完整路径
